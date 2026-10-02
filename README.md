@@ -15,6 +15,12 @@ npx serve .
 
 Any static host works with zero config: Vercel, Netlify, Cloudflare Pages or GitHub Pages. No build step.
 
+## Images (`img/`)
+
+- `sanfrancisco.jpg` (hero), `toronto.jpg` (story band), `cockpit.jpg` (off duty) are AI-generated scenery. Swap any of them for real photos by replacing the file; same filename, nothing else to change.
+- `carer-with-resident.jpg`, `ascenix-a-mark-3d.png` are Ascenix brand assets from ascenix.co.
+- The About section photo is the natural slot for a real photo of you (ideally from the retirement home). Replace `carer-with-resident.jpg` or point the `<img>` in `#about` at a new file and update the caption.
+
 ## Updating
 
 - **Now**: edit the list in `#now` and the "Updated …" label.
