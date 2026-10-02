@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rishi Mehta</title>
+  <meta name="description" content="Cofounder & CEO of Ascenix (YC F26). Moved into a retirement home straight out of high school to understand senior care. Now building the infrastructure that runs it." />
+  <meta name="theme-color" content="#0F0F14" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rishi Mehta" />
+  <meta property="og:description" content="Cofounder & CEO of Ascenix (YC F26). Lived in a retirement home for a year and a half to understand senior care. Now building the infrastructure that runs it." />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="nav__mark" href="#top" aria-label="Rishi Mehta — home">
+      <span class="mark">RM</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#story">Story</a>
+      <a href="#ascenix">Ascenix</a>
+      <a href="#principles">Principles</a>
+      <a href="#now">Now</a>
+      <a href="#off-duty">Off duty</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__clock mono" aria-live="off">
+      <span class="dot" aria-hidden="true"></span>
+      <span>SF</span>
+      <time id="clock" datetime="">--:--:--</time>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__text">
+        <p class="overline mono reveal">Rishi Mehta &nbsp;·&nbsp; Toronto <span class="arrow">→</span> San Francisco</p>
+        <h1 class="reveal">I moved into a retirement home straight out of high school to figure out how senior care <em>actually</em> works.</h1>
+        <p class="lede reveal">
+          Cofounder &amp; CEO of <a href="https://ascenix.co" target="_blank" rel="noopener">Ascenix</a> (YC F26).
+          We take the clinical notes care teams already write and turn them into reporting, compliance and resident-risk intelligence.
+          Live in 55 facilities across Canada and the US.
+        </p>
+        <div class="hero__cta reveal">
+          <a class="btn btn--primary" href="mailto:rishi.mehta@ascenix.co">Email me</a>
+          <a class="btn btn--ghost" href="#story">Read the story <span class="arrow">↓</span></a>
+        </div>
+      </div>
+
+      <aside class="hud reveal" aria-label="Current status">
+        <div class="hud__corner hud__corner--tl" aria-hidden="true"></div>
+        <div class="hud__corner hud__corner--tr" aria-hidden="true"></div>
+        <div class="hud__corner hud__corner--bl" aria-hidden="true"></div>
+        <div class="hud__corner hud__corner--br" aria-hidden="true"></div>
+        <div class="hud__scan" aria-hidden="true"></div>
+
+        <div class="hud__head mono">
+          <span>STATUS</span>
+          <span class="hud__live"><span class="dot dot--pulse" aria-hidden="true"></span>LIVE</span>
+        </div>
+        <dl class="hud__rows mono">
+          <div><dt>MODE</dt><dd>Building</dd></div>
+          <div><dt>COMPANY</dt><dd>Ascenix · YC F26</dd></div>
+          <div><dt>LOCATION</dt><dd>San Francisco, CA</dd></div>
+          <div><dt>LOCAL TIME</dt><dd id="hud-time">--:--:-- PDT</dd></div>
+          <div><dt>FACILITIES</dt><dd><span class="count" data-count="55">0</span></dd></div>
+          <div><dt>HOME BASE</dt><dd>Toronto, ON</dd></div>
+          <div><dt>RETIREMENT</dt><dd class="accent">Not planned</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- ============ STORY ============ -->
+    <section class="section" id="story">
+      <div class="section__head reveal">
+        <span class="section__num mono">01</span>
+        <h2>The story so far</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="reveal">
+          <span class="timeline__when mono">GTA</span>
+          <div class="timeline__what">
+            <p>Grew up in the Toronto area. Started volunteering in retirement homes with <a href="https://ca.linkedin.com/in/ayaan-esmail" target="_blank" rel="noopener">Ayaan</a> when we were young. Spending time around older people was just part of life, long before it was a business.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono">2019 →</span>
+          <div class="timeline__what">
+            <p>Got into machine learning through activity and object classification. Did consulting work for XPRIZE, Sidewalk Labs and Oxford Properties while still in school. Learned how to break a messy problem down and ship something.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono">HS</span>
+          <div class="timeline__what">
+            <p>Finished high school. Didn't take the university route; put the time into building a company and understanding senior care instead.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono">Fallyx</span>
+          <div class="timeline__what">
+            <p>Built a waist-worn fall-detection wearable: a six-axis sensor with an on-device ML model that caught falls in real time and told staff where the resident was. Filed a patent on the detection method. Backed by 186 Ventures and Ivan Yuen (cofounder of Wattpad).</p>
+          </div>
+        </li>
+        <li class="reveal timeline__item--key">
+          <span class="timeline__when mono">1.5 yrs</span>
+          <div class="timeline__what">
+            <p>Moved into a retirement home in Scarborough with Ayaan. Not “embedded”. Lived there. Slept there, ate three meals a day with residents, worked from the building. <a href="https://www.cbc.ca/news/canada/toronto/teens-retirement-home-1.7414002" target="_blank" rel="noopener">CBC came by</a> around the holidays.</p>
+            <p>This is the part that changed everything. A resident's quality of life had less to do with any one device and much more to do with the system around them: staff time, funding, and whether anyone actually understood what was happening to each person.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono">The gap</span>
+          <div class="timeline__what">
+            <p>Watched one fall get scattered across 7–10 separate notes. Watched reporting eat roughly a fifth of a nursing manager's week. The information was already being collected; nobody was connecting it.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono">Ascenix</span>
+          <div class="timeline__what">
+            <p>Rebuilt the company around that. Ascenix plugs into the EHR homes already use, automates incident reporting, flags missing compliance documentation and ranks resident risk. Team of seven. Live in 55 facilities.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono">Sep 2026</span>
+          <div class="timeline__what">
+            <p>Got into Y Combinator's Fall 2026 batch. Moved to San Francisco. Most new demand is coming from the US now, so that's where the focus is.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="timeline__when mono accent">Now</span>
+          <div class="timeline__what">
+            <p>Working on the infrastructure that runs senior care. Reporting was the first piece. Reimbursement, resident health and better care are the rest of it.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ ASCENIX ============ -->
+    <section class="section" id="ascenix">
+      <div class="section__head reveal">
+        <span class="section__num mono">02</span>
+        <h2>Ascenix</h2>
+      </div>
+
+      <div class="ascenix">
+        <div class="ascenix__copy reveal">
+          <p class="big">The incident intelligence layer for long-term care.</p>
+          <p>Care teams write everything down already: falls, behaviours, hydration, assessments, care plans. It's just fragmented across thousands of notes, and government mandates say it all has to be analysed anyway. Ascenix reads that documentation against itself and sends back the reporting, the compliance gaps and the ranked risk. Nothing gets written twice.</p>
+          <p>We're hiring engineers and account executives who want to work on something that matters to real people. If that's you, <a href="mailto:rishi.mehta@ascenix.co">write to me directly</a>.</p>
+          <a class="btn btn--ghost" href="https://ascenix.co" target="_blank" rel="noopener">ascenix.co <span class="arrow">↗</span></a>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <span class="stat__value"><span class="count" data-count="55">0</span></span>
+            <span class="stat__label">facilities across Canada and the US</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__value"><span class="count" data-count="20">0</span>%</span>
+            <span class="stat__label">of a nursing manager's week given back from manual reporting</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__value">7–10 <span class="arrow">→</span> 1</span>
+            <span class="stat__label">notes per fall, turned into one report</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__value"><span class="count" data-count="7">0</span></span>
+            <span class="stat__label">people on the team, full time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="section" id="principles">
+      <div class="section__head reveal">
+        <span class="section__num mono">03</span>
+        <h2>How I operate</h2>
+      </div>
+
+      <ol class="principles">
+        <li class="principle reveal">
+          <h3>Live up to it.</h3>
+          <p>The thing I actually worry about isn't failing. It's not using what I was given. Everything else is downstream of that.</p>
+        </li>
+        <li class="principle reveal">
+          <h3>Go live there.</h3>
+          <p>You don't understand a problem from a deck or a discovery call. I understand senior care because I ate breakfast with residents for a year and a half.</p>
+        </li>
+        <li class="principle reveal">
+          <h3>Money is a tool.</h3>
+          <p>I've never cared much about things. Money is useful because it makes things happen faster. That's the whole appeal.</p>
+        </li>
+        <li class="principle reveal">
+          <h3>No retirement.</h3>
+          <p>Building a company is the most fulfilled version of me I've found. I don't picture stopping, and I don't want to.</p>
+        </li>
+        <li class="principle reveal">
+          <h3>Say it plainly.</h3>
+          <p>Generic, over-polished or needlessly complicated answers get pushed back on. If it fits in one sentence, it gets one sentence.</p>
+        </li>
+        <li class="principle reveal">
+          <h3>Discipline over mood.</h3>
+          <p>Less TV. Fewer distractions. Protect the focus and make the day count. Motivation is nice; it's not the plan.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ NOW ============ -->
+    <section class="section" id="now">
+      <div class="section__head reveal">
+        <span class="section__num mono">04</span>
+        <h2>Now</h2>
+        <span class="section__meta mono">Updated Oct 2026</span>
+      </div>
+
+      <div class="now reveal">
+        <ul class="now__list">
+          <li>In San Francisco for YC's Fall 2026 batch. Pete Koomen is our group partner.</li>
+          <li>Days are selling, hiring, product calls, customer issues, contracts, and figuring out how to grow faster than last month.</li>
+          <li>Pushing Ascenix hard into the US. That's where the demand is right now.</li>
+          <li>Trying to make real friends out here, not just contacts.</li>
+          <li>Getting physically stronger. Boxing is next on the list.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ OFF DUTY ============ -->
+    <section class="section" id="off-duty">
+      <div class="section__head reveal">
+        <span class="section__num mono">05</span>
+        <h2>Off duty</h2>
+      </div>
+
+      <div class="offduty">
+        <div class="offduty__copy reveal">
+          <p>I like flying, anything with an engine, and adrenaline in general. I'm a Tom Cruise and <em>Mission: Impossible</em> fan to the point where I occasionally catch myself wanting to do the things Ethan Hunt does. So far I've resisted.</p>
+          <p>Toronto kid, boys' boy, bad at sitting still.</p>
+        </div>
+
+        <div class="checklist reveal" aria-label="The list">
+          <div class="checklist__head mono">THE LIST</div>
+          <ul>
+            <li class="done"><span class="box" aria-hidden="true"></span>Live in a retirement home</li>
+            <li class="done"><span class="box" aria-hidden="true"></span>File a patent</li>
+            <li class="done"><span class="box" aria-hidden="true"></span>Get into YC</li>
+            <li class="done"><span class="box" aria-hidden="true"></span>Move to San Francisco</li>
+            <li><span class="box" aria-hidden="true"></span>Motorcycle licence</li>
+            <li><span class="box" aria-hidden="true"></span>Boating licence</li>
+            <li><span class="box" aria-hidden="true"></span>Learn to fly</li>
+            <li><span class="box" aria-hidden="true"></span>Learn to box</li>
+            <li><span class="box" aria-hidden="true"></span>Make senior care run on Ascenix</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRESS ============ -->
+    <section class="section section--tight" id="press">
+      <div class="section__head reveal">
+        <span class="section__num mono">06</span>
+        <h2>In the press</h2>
+      </div>
+      <ul class="press">
+        <li class="reveal">
+          <a href="https://www.cbc.ca/news/canada/toronto/teens-retirement-home-1.7414002" target="_blank" rel="noopener">
+            <span class="press__outlet mono">CBC News</span>
+            <span class="press__title">Fresh out of high school, living in a retirement home: teens move in to develop fall detection system</span>
+            <span class="press__date mono">Dec 2024</span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a href="https://www.linkedin.com/posts/rishi-mehta-12b569140_ascenix-the-incident-intelligence-layer-activity-7504252539740008448-eIxR" target="_blank" rel="noopener">
+            <span class="press__outlet mono">Announcement</span>
+            <span class="press__title">Ascenix is joining Y Combinator's Fall 2026 batch</span>
+            <span class="press__date mono">Sep 2026</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="section__head reveal">
+        <span class="section__num mono">07</span>
+        <h2>Say hi</h2>
+      </div>
+      <div class="contact__body reveal">
+        <p class="big">If you're building in senior care, thinking about joining Ascenix, or just in SF and want to grab a coffee, email is the fastest way.</p>
+        <a class="contact__email" href="mailto:rishi.mehta@ascenix.co">rishi.mehta@ascenix.co</a>
+        <div class="contact__links">
+          <a href="https://www.linkedin.com/in/rishi-mehta-12b569140" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+          <a href="https://ascenix.co" target="_blank" rel="noopener">Ascenix <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__left mono">
+      <span>© <span id="year">2026</span> Rishi Mehta</span>
+      <span class="sep">·</span>
+      <span>Toronto-born, SF-based</span>
+    </div>
+    <div class="footer__palette" aria-label="Site palette">
+      <span class="swatch" style="--c:#0CC7ED" title="Sky Aqua — 0CC7ED"></span>
+      <span class="swatch" style="--c:#E8E8E8" title="Alabaster Grey — E8E8E8"></span>
+      <span class="swatch swatch--onyx" style="--c:#0F0F14" title="Onyx — 0F0F14"></span>
+      <span class="mono footer__palette-label">0CC7ED · E8E8E8 · 0F0F14</span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
