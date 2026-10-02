@@ -328,6 +328,7 @@ h1 em { font-style: italic; color: var(--aqua); }
 .hud__rows > div:last-child { border-bottom: 0; }
 .hud__rows dt { color: var(--text-3); letter-spacing: .08em; font-size: 11px; text-transform: uppercase; padding-top: 1px; }
 .hud__rows dd { color: var(--text); font-variant-numeric: tabular-nums; }
+.hud__rows dd.accent { color: var(--aqua); }
 
 /* ---------- Timeline ---------- */
 .timeline { position: relative; }
@@ -340,7 +341,7 @@ h1 em { font-style: italic; color: var(--aqua); }
 }
 .timeline li:last-child { border-bottom: 0; }
 .timeline__when {
-  color: var(--text-3);
+  color: var(--text-2);
   padding-top: 6px;
   position: relative;
   transition: color .3s;
