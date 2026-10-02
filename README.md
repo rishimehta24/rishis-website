@@ -1,10 +1,9 @@
-# rishimehta — personal site
+# Rishi Mehta — personal site
 
-Static, dependency-free. Three files do the work:
+Static, dependency-free. Two files do the work:
 
-- `index.html` — all content lives here. Edit text directly.
-- `styles.css` — design tokens at the top (`:root`). Palette is the Ascenix palette: `#0CC7ED` / `#E8E8E8` / `#0F0F14`; fonts match ascenix.co (Newsreader, Plus Jakarta Sans, IBM Plex Mono).
-- `script.js` — live SF clock, reveal-on-scroll, count-up numbers, active nav link, hero cursor glow.
+- `index.html` — all content. Edit text directly.
+- `styles.css` — palette and type at the top (`:root`). Colours are the Ascenix palette: `#0CC7ED` / `#E8E8E8` / `#0F0F14`. Font is Inter.
 
 ## Run locally
 
@@ -12,14 +11,11 @@ Static, dependency-free. Three files do the work:
 npx serve .
 ```
 
-Then open the URL it prints (usually http://localhost:3000).
-
 ## Deploy
 
-Any static host works with zero config: drop the folder on Vercel, Netlify, Cloudflare Pages or GitHub Pages. No build step.
+Any static host works with zero config: Vercel, Netlify, Cloudflare Pages or GitHub Pages. No build step.
 
 ## Updating
 
-- **Now** section: edit the list in `#now` and bump the `Updated …` label.
-- **The list** (`#off-duty`): add `class="done"` to an `<li>` when something gets checked off.
-- **Stats**: numbers live in `data-count` attributes so the count-up animation picks them up.
+- **Now**: edit the list in `#now` and the "Updated …" label.
+- **Off duty list**: add `class="done"` to an `<li>` to check it off.
