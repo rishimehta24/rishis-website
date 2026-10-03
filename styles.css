@@ -177,10 +177,34 @@ h1 {
   grid-template-columns: 40px 1fr;
   gap: 16px;
   padding: 24px 0;
-  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.story li::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--line);
 }
 .story__n { color: var(--accent); font-weight: 600; font-size: 14px; padding-top: 5px; }
 .story p { color: var(--text-2); }
+
+/* Story reveal (JS adds .js to <html>; without JS everything is visible) */
+.js .story li { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.22, 1, .36, 1); }
+.js .story li::after { transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.22, 1, .36, 1) .2s; }
+.js .story li .story__n { opacity: 0; transform: translateX(-8px); transition: opacity .5s ease .15s, transform .5s ease .15s; }
+.js .story li.in, .js .story li.in .story__n { opacity: 1; transform: none; }
+.js .story li.in::after { transform: scaleX(1); }
+.js .band__inner { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1); }
+.js .band__inner.in { opacity: 1; transform: none; }
+.js .band__img { transform: scale(1.06); transition: transform 1.6s cubic-bezier(.22, 1, .36, 1); }
+.js .band__img.in { transform: scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .story li, .js .story li::after, .js .story li .story__n, .js .band__inner, .js .band__img {
+    opacity: 1; transform: none; transition: none;
+  }
+}
 
 /* Ascenix */
 .section--ascenix { background: var(--bg-2); margin-top: var(--section-y); padding-bottom: var(--section-y); }

@@ -4,6 +4,7 @@ Static, dependency-free. Two files do the work:
 
 - `index.html` — all content. Edit text directly.
 - `styles.css` — palette and type at the top (`:root`). Colours are the Ascenix palette: `#0CC7ED` / `#E8E8E8` / `#0F0F14`. Font is Inter.
+- `script.js` — one thing: reveals the story items as you scroll. Delete it and the page still works.
 
 ## Run locally
 
