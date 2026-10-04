@@ -116,17 +116,6 @@ h1 {
 /* Sections */
 .section { padding: var(--section-y) 0 0; }
 
-/* About */
-.about {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 64px;
-  align-items: center;
-}
-.about__photo img { border-radius: 12px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
-.caption { color: var(--text-3); font-size: 14px; margin-top: 12px; }
-.about__text p + p { margin-top: 16px; }
-
 /* Why */
 .why {
   display: grid;
@@ -251,7 +240,7 @@ h1 {
 /* Responsive */
 @media (max-width: 960px) {
   :root { --section-y: 72px; --pad: 24px; }
-  .about, .ascenix, .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .ascenix, .two-col { grid-template-columns: 1fr; gap: 40px; }
   .why { grid-template-columns: 1fr; gap: 24px; }
   .principles { grid-template-columns: 1fr 1fr; gap: 32px; }
   .hero { min-height: 78vh; }

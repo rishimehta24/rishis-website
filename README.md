@@ -19,8 +19,7 @@ Any static host works with zero config: Vercel, Netlify, Cloudflare Pages or Git
 ## Images (`img/`)
 
 - `sanfrancisco.jpg` (hero) and `cockpit.jpg` (off duty) are AI-generated scenery. Swap any of them for real photos by replacing the file; same filename, nothing else to change.
-- `carer-with-resident.jpg`, `ascenix-a-mark-3d.png` are Ascenix brand assets from ascenix.co.
-- The About section photo is the natural slot for a real photo of you (ideally from the retirement home). Replace `carer-with-resident.jpg` or point the `<img>` in `#about` at a new file and update the caption.
+- `ascenix-a-mark-3d.png` is an Ascenix brand asset from ascenix.co.
 
 ## Updating
 
