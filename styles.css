@@ -148,62 +148,32 @@ h1 {
 }
 .why__text p + p { margin-top: 16px; }
 
-/* Story */
-.section--story { padding-top: 0; margin-top: var(--section-y); }
-.band {
+/* Story bullets */
+.section--bullets { padding-top: 72px; }
+.bullets { max-width: 760px; }
+.bullets li {
   position: relative;
-  min-height: 420px;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
+  padding-left: 24px;
+  margin-bottom: 14px;
+  font-size: 18px;
 }
-.band__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-.band__shade {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, var(--bg) 0%, rgba(15, 15, 20, 0.2) 35%, rgba(15, 15, 20, 0.85) 100%);
-}
-.band__inner { position: relative; width: 100%; padding-bottom: 48px; }
-.band h2 { margin-bottom: 6px; font-size: 40px; }
-.band p { color: var(--text-2); }
-
-.story {
-  columns: 2;
-  column-gap: 64px;
-  margin-top: 24px;
-}
-.story li {
-  break-inside: avoid;
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 16px;
-  padding: 24px 0;
-  position: relative;
-}
-.story li::after {
+.bullets li::before {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1px;
-  background: var(--line);
+  left: 2px; top: .72em;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
 }
-.story__n { color: var(--accent); font-weight: 600; font-size: 14px; padding-top: 5px; }
-.story p { color: var(--text-2); }
+.bullets li:last-child { margin-bottom: 0; }
+.bullets a { color: var(--text); border-bottom: 1px solid rgba(232,232,232,.3); }
+.bullets a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
-/* Story reveal (JS adds .js to <html>; without JS everything is visible) */
-.js .story li { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.22, 1, .36, 1); }
-.js .story li::after { transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.22, 1, .36, 1) .2s; }
-.js .story li .story__n { opacity: 0; transform: translateX(-8px); transition: opacity .5s ease .15s, transform .5s ease .15s; }
-.js .story li.in, .js .story li.in .story__n { opacity: 1; transform: none; }
-.js .story li.in::after { transform: scaleX(1); }
-.js .band__inner { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1); }
-.js .band__inner.in { opacity: 1; transform: none; }
-.js .band__img { transform: scale(1.06); transition: transform 1.6s cubic-bezier(.22, 1, .36, 1); }
-.js .band__img.in { transform: scale(1); }
-
+/* Reveal (JS adds .js to <html>; without JS everything is visible) */
+.js .bullets li { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s cubic-bezier(.22, 1, .36, 1); }
+.js .bullets li.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .js .story li, .js .story li::after, .js .story li .story__n, .js .band__inner, .js .band__img {
-    opacity: 1; transform: none; transition: none;
-  }
+  .js .bullets li { opacity: 1; transform: none; transition: none; }
 }
 
 /* Ascenix */
@@ -290,7 +260,6 @@ h1 {
   :root { --section-y: 72px; --pad: 24px; }
   .about, .ascenix, .two-col { grid-template-columns: 1fr; gap: 40px; }
   .why { grid-template-columns: 1fr; gap: 24px; }
-  .story { columns: 1; }
   .principles { grid-template-columns: 1fr 1fr; gap: 32px; }
   .hero { min-height: 78vh; }
 }
@@ -298,7 +267,6 @@ h1 {
   .nav { display: none; }
   .hero__inner { padding-bottom: 48px; }
   h2 { font-size: 28px; }
-  .band h2 { font-size: 32px; }
   .principles { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }
   .press li a { grid-template-columns: 1fr; gap: 4px; }
