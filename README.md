@@ -24,5 +24,4 @@ Any static host works with zero config: Vercel, Netlify, Cloudflare Pages or Git
 
 ## Updating
 
-- **Now**: edit the list in `#now` and the "Updated …" label.
 - **Off duty list**: add `class="done"` to an `<li>` to check it off.

@@ -200,8 +200,9 @@ h1 {
 }
 .principle p { color: var(--text-2); font-size: 16px; }
 
-/* Two-col (Now / Off duty) */
+/* Two-col (Off duty) */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.two-col--offduty .photo img { aspect-ratio: 5 / 4; margin-bottom: 0; }
 .photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
 #off-duty p { color: var(--text-2); }
 #off-duty .checklist { margin-top: 20px; }
