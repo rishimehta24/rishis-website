@@ -150,21 +150,13 @@ h1 {
 
 /* Story bullets */
 .section--bullets { padding-top: 72px; }
-.bullets { max-width: 760px; }
+.bullets { max-width: 760px; list-style: disc; padding-left: 28px; }
 .bullets li {
-  position: relative;
-  padding-left: 24px;
   margin-bottom: 14px;
   font-size: 18px;
+  padding-left: 6px;
 }
-.bullets li::before {
-  content: "";
-  position: absolute;
-  left: 2px; top: .72em;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-}
+.bullets li::marker { color: var(--accent); font-size: 1.1em; }
 .bullets li:last-child { margin-bottom: 0; }
 .bullets a { color: var(--text); border-bottom: 1px solid rgba(232,232,232,.3); }
 .bullets a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
