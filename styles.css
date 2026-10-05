@@ -139,6 +139,9 @@ h1 {
 
 /* Story bullets */
 .section--bullets { padding-top: 72px; }
+.creds { max-width: 760px; margin-bottom: 20px; font-size: 18px; color: var(--text-2); }
+.creds a { color: var(--text); border-bottom: 1px solid rgba(232,232,232,.3); }
+.creds a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 .bullets { max-width: 760px; list-style: disc; padding-left: 28px; }
 .bullets li {
   margin-bottom: 14px;
