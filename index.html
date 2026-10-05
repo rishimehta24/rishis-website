@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
 
@@ -36,14 +36,32 @@
 
     <!-- Hero -->
     <section class="hero">
-      <img class="hero__img" src="img/sanfrancisco.jpg" alt="San Francisco under fog at dusk" fetchpriority="high" />
-      <div class="hero__shade"></div>
       <div class="wrap hero__inner">
-        <h1>Rishi Mehta</h1>
-        <p class="hero__sub">20 years old, from Toronto. Cofounder of <a href="https://ascenix.co" target="_blank" rel="noopener">Ascenix</a> (YC F26)</p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="mailto:rishi.mehta@ascenix.co">Email me</a>
-          <a class="btn btn--ghost" href="#story">The story</a>
+        <div class="hero__copy">
+          <h1>Rishi Mehta</h1>
+          <p class="hero__sub">20 years old, from Toronto. Cofounder of <a href="https://ascenix.co" target="_blank" rel="noopener">Ascenix</a> (YC F26)</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="mailto:rishi.mehta@ascenix.co">Email me</a>
+            <a class="btn btn--ghost" href="#story">The story</a>
+          </div>
+        </div>
+        <div class="polaroids" aria-label="Photos of Rishi">
+          <figure class="polaroid" data-depth="0.35">
+            <img src="img/me-speaking.jpg" alt="Rishi speaking on stage" width="640" height="800" fetchpriority="high" />
+            <figcaption>On stage</figcaption>
+          </figure>
+          <figure class="polaroid" data-depth="0.6">
+            <img src="img/me-suit.jpg" alt="Rishi in a suit and sunglasses" width="640" height="800" />
+            <figcaption>Suited up</figcaption>
+          </figure>
+          <figure class="polaroid" data-depth="0.2">
+            <img src="img/me-coding.jpg" alt="Rishi coding at a desk" width="640" height="800" />
+            <figcaption>Shipping</figcaption>
+          </figure>
+          <figure class="polaroid" data-depth="0.5">
+            <img src="img/me-scarborough.jpg" alt="Rishi with residents at the retirement home in Scarborough" width="640" height="800" />
+            <figcaption>Scarborough</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -57,11 +75,11 @@
           <li>Grew up in Toronto.</li>
           <li>Self-taught across coding, electrical and mechanical engineering over the last decade.</li>
           <li>Joined <a href="https://www.tks.world" target="_blank" rel="noopener">TKS</a> at 13. Got into machine learning and autonomous vehicles, built a few projects there, and consulted for XPRIZE, Sidewalk Labs and Oxford Properties while still in school.</li>
-          <li>Tried to solve the <a href="https://solve.mit.edu/solutions/55728" target="_blank" rel="noopener">open defecation crisis in Nigeria</a>.</li>
-          <li>Started building projects in senior care. Decided university wasn't right for me, and wanted to actually understand the industry, so I moved into a retirement home in Scarborough for a year and a half. Slept there, ate with the residents, worked from the building.</li>
-          <li>Built Fallyx, a wearable fall-detection sensor with on-device ML. <a href="https://patents.google.com/patent/WO2025129326A1/en" target="_blank" rel="noopener">Got a patent on it</a>. Backed by 186 Ventures and Ivan Yuen (cofounder of Wattpad).</li>
-          <li>Learned the real problem wasn't a missing device. One fall sat across 7–10 notes, reporting ate a fifth of a nurse manager's week, and nobody was connecting it.</li>
-          <li>Rebuilt the company as Ascenix. Live in 55 facilities across Canada and the US, team of seven.</li>
+          <li>Tried to solve the <a href="https://solve.mit.edu/solutions/55728" target="_blank" rel="noopener">open defecation crisis in Nigeria</a> (big side quest).</li>
+          <li>Started building projects in senior care. Decided university wasn't right for me, and wanted to actually understand the industry, so I moved into a retirement home in Scarborough for a bit. Life-changing experience, both for the company and personally.</li>
+          <li>Built Fallyx, a wearable fall detection sensor that also did location/activity monitoring, and acted as a PERS through IMU, barometric, and capacitive touch sensors. <a href="https://patents.google.com/patent/WO2025129326A1/en" target="_blank" rel="noopener">Got a patent on it</a>. Backed by 186 Ventures and Ivan Yuen (cofounder of Wattpad).</li>
+          <li>Learned that the biggest opportunity for quality of life isn't hardware monitoring, it's infrastructure change. The people who give care and control QoL aren't operating at their max potential clinically, financially, or operationally. They spend time on things that don't move the needle.</li>
+          <li>Rebuilt the company as Ascenix. In 55 facilities across North America, team of seven.</li>
           <li>Got into Y Combinator (F26) and moved to San Francisco.</li>
           <li>Now, building the infrastructure that runs senior care.</li>
         </ul>
@@ -74,9 +92,10 @@
         <h2>Why senior care</h2>
         <p class="why__statement">I believe in a better tomorrow for the elderly, and I believe the status quo isn't good enough.</p>
         <div class="why__text">
-          <p>Everyone gets old. Most of us will end up in a care home or have a parent in one, and the way those places run today is held together by overworked staff, paper, and luck. I've seen it up close. I lived in one.</p>
-          <p>Living there is what made this personal. You eat with people every day, you learn their names and their stories, and then you watch a fall go unnoticed or a report eat an afternoon that should have gone to them. You stop seeing it as a market and start seeing it as a debt.</p>
-          <p>So I keep trying ideas. A watch, a sensor, a wearable, a patent. Most of them failed. Ascenix is the one that worked, and it's still just the first piece. I don't plan on doing anything else.</p>
+          <p>I've been building in senior care for half a decade and pivoted a few times along the way, so it's a fair question: why this industry?</p>
+          <p>Because it's one of the most underserved markets in the world relative to how much it matters. The number of elderly people will double by 2050, and we don't have the infrastructure to handle that. The quality of life in most care settings isn't good enough today, and it's about to be stretched much further.</p>
+          <p>The reason I love being a founder is that a company lets you build something that makes a real difference in a large number of people's lives. Senior care is where that lever is biggest. Changing the way care is given changes daily life for a huge portion of the population, and for everyone who loves them.</p>
+          <p>I've also always believed it's very difficult to build something great without fully immersing yourself in it. That's why I moved into a retirement home. Everyone gets old, and most of us will end up in a care home or have a parent in one. I've seen how those places run up close, and I don't plan on working on anything else.</p>
         </div>
       </div>
     </section>
@@ -123,6 +142,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2" defer></script>
+  <script src="script.js?v=3" defer></script>
 </body>
 </html>

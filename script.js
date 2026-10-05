@@ -1,4 +1,40 @@
-/* Reveal story bullets as they scroll into view. Nothing else. */
+/* Hero polaroids: hide broken images, subtle parallax on scroll. */
+(function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.polaroid'));
+  if (!cards.length) return;
+
+  cards.forEach(function (card) {
+    var img = card.querySelector('img');
+    if (!img) return;
+    var markMissing = function () { card.classList.add('is-missing'); };
+    img.addEventListener('error', markMissing);
+    if (img.complete && img.naturalWidth === 0) markMissing();
+  });
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var narrow = window.matchMedia('(max-width: 960px)');
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    if (reduce.matches || narrow.matches) {
+      cards.forEach(function (c) { c.style.removeProperty('--py'); });
+      return;
+    }
+    var y = window.scrollY || window.pageYOffset;
+    cards.forEach(function (c) {
+      var depth = parseFloat(c.getAttribute('data-depth')) || 0;
+      c.style.setProperty('--py', (y * depth * -0.25).toFixed(1) + 'px');
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+
+/* Reveal story bullets as they scroll into view. */
 (function () {
   document.documentElement.classList.add('js');
   var items = Array.prototype.slice.call(document.querySelectorAll('.bullets li'));
