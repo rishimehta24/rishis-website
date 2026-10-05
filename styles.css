@@ -160,29 +160,6 @@ h1 {
   .js .bullets li { opacity: 1; transform: none; transition: none; }
 }
 
-/* Principles */
-.principles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 48px;
-  margin-top: 8px;
-}
-.principle p { color: var(--text-2); font-size: 16px; }
-
-/* Two-col (Off duty) */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-.two-col--offduty .photo img { aspect-ratio: 5 / 4; margin-bottom: 0; }
-.photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
-#off-duty p { color: var(--text-2); }
-#off-duty .checklist { margin-top: 20px; }
-
-/* Lists */
-.list li { position: relative; padding-left: 20px; margin-bottom: 12px; color: var(--text-2); }
-.list li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 8px; height: 1px; background: var(--text-3); }
-.list--tight li { margin-bottom: 6px; }
-.list li.done { color: var(--text-3); text-decoration: line-through; }
-.list li.done::before { background: var(--accent); }
-
 /* Press */
 .press li a {
   display: grid;
@@ -220,16 +197,13 @@ h1 {
 /* Responsive */
 @media (max-width: 960px) {
   :root { --section-y: 72px; --pad: 24px; }
-  .two-col { grid-template-columns: 1fr; gap: 40px; }
   .why { grid-template-columns: 1fr; gap: 24px; }
-  .principles { grid-template-columns: 1fr 1fr; gap: 32px; }
   .hero { min-height: 78vh; }
 }
 @media (max-width: 600px) {
   .nav { display: none; }
   .hero__inner { padding-bottom: 48px; }
   h2 { font-size: 28px; }
-  .principles { grid-template-columns: 1fr; }
   .press li a { grid-template-columns: 1fr; gap: 4px; }
   .footer__inner { flex-direction: column; }
   h2 .meta { display: block; margin: 4px 0 0; }
