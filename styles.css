@@ -10,8 +10,9 @@
   --line: rgba(232, 232, 232, 0.12);
   --accent: #0CC7ED;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --wrap: 1200px;
-  --pad: 32px;
+  --wrap: 1360px;
+  --wrap-wide: 1720px;
+  --pad: 40px;
   --section-y: 96px;
 }
 
@@ -35,6 +36,7 @@ a:hover { text-decoration: underline; }
 ::selection { background: var(--accent); color: var(--bg); }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
+.wrap--wide { max-width: var(--wrap-wide); }
 
 h2 {
   font-size: 32px;
@@ -74,26 +76,42 @@ h2 .meta { margin-left: 14px; }
     radial-gradient(ellipse 60% 50% at 80% 40%, rgba(12, 199, 237, 0.10), transparent 70%),
     var(--bg);
 }
+/* film grain */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
 .hero__inner {
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: center;
-  gap: 48px;
+  gap: 80px;
   padding-top: 120px;
   padding-bottom: 72px;
 }
 .hero__copy { position: relative; z-index: 2; }
+.js .hero__copy > * { opacity: 0; transform: translateY(14px); animation: rise .8s cubic-bezier(.22, 1, .36, 1) forwards; }
+.js .hero__copy > :nth-child(1) { animation-delay: .05s; }
+.js .hero__copy > :nth-child(2) { animation-delay: .18s; }
+.js .hero__copy > :nth-child(3) { animation-delay: .30s; }
+@keyframes rise { to { opacity: 1; transform: none; } }
 
 /* Polaroid strip */
 .polaroids {
   position: relative;
-  height: 520px;
+  height: 600px;
   perspective: 1200px;
 }
 .polaroid {
-  --w: 230px;
+  --w: 250px;
   position: absolute;
   width: var(--w);
   padding: 10px 10px 40px;
@@ -102,10 +120,23 @@ h2 .meta { margin-left: 14px; }
   box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.35),
     0 24px 48px -16px rgba(0, 0, 0, 0.7);
-  transform: rotate(var(--rot)) translateY(var(--py, 0px));
+  transform:
+    translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px)))
+    rotate(var(--rot));
   transition: transform .5s cubic-bezier(.22, 1, .36, 1), box-shadow .5s ease, z-index 0s;
   will-change: transform;
 }
+/* drop-in on load */
+.js .polaroid { opacity: 0; animation: drop .9s cubic-bezier(.22, 1, .36, 1) forwards; }
+.js .polaroid:nth-child(1) { animation-delay: .25s; }
+.js .polaroid:nth-child(2) { animation-delay: .40s; }
+.js .polaroid:nth-child(3) { animation-delay: .55s; }
+.js .polaroid:nth-child(4) { animation-delay: .70s; }
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-36px) rotate(calc(var(--rot) * 2.2)) scale(1.06); }
+  to   { opacity: 1; transform: translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px))) rotate(var(--rot)); }
+}
+.polaroid.settled { animation: none; opacity: 1; }
 .polaroid img {
   width: 100%;
   height: calc((var(--w) - 20px) * 1.25);
@@ -117,19 +148,21 @@ h2 .meta { margin-left: 14px; }
 .polaroid figcaption {
   position: absolute;
   left: 10px; right: 10px; bottom: 11px;
-  font-size: 13px;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Script', cursive;
+  font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.01em;
   color: #2B2B33;
   text-align: center;
-  font-family: 'Inter', cursive;
+  line-height: 1;
 }
-.polaroid:nth-child(1) { --rot: -7deg;  left: 2%;  top: 6%;  z-index: 2; }
-.polaroid:nth-child(2) { --rot: 5deg;   left: 42%; top: 0;   z-index: 4; }
-.polaroid:nth-child(3) { --rot: -3deg;  left: 12%; top: 46%; z-index: 1; }
-.polaroid:nth-child(4) { --rot: 8deg;   left: 58%; top: 42%; z-index: 3; }
+.polaroid:nth-child(1) { --rot: -7deg;  left: 4%;  top: 4%;  z-index: 2; }
+.polaroid:nth-child(2) { --rot: 5deg;   left: 40%; top: 0;   z-index: 4; }
+.polaroid:nth-child(3) { --rot: -3deg;  left: 22%; top: 44%; z-index: 1; }
+.polaroid:nth-child(4) { --rot: 8deg;   right: 2%; top: 38%; z-index: 3; }
 .polaroid:hover {
-  transform: rotate(0deg) translateY(calc(var(--py, 0px) - 8px)) scale(1.04);
+  transform:
+    translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px) - 8px))
+    rotate(0deg) scale(1.04);
   z-index: 10;
   box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.35),
@@ -204,6 +237,8 @@ h1 {
 .js .bullets li.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .bullets li { opacity: 1; transform: none; transition: none; }
+  .js .hero__copy > *, .js .polaroid { animation: none; opacity: 1; transform: rotate(var(--rot, 0deg)); }
+  .hero::after { display: none; }
 }
 
 /* Press */

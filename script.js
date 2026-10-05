@@ -13,24 +13,40 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var narrow = window.matchMedia('(max-width: 960px)');
+  var hero = document.querySelector('.hero');
   var ticking = false;
+  var mx = 0, my = 0; // cursor offset from hero centre, -1..1
+
+  // Once the drop-in finishes, hand control to the live transform.
+  cards.forEach(function (card) {
+    card.addEventListener('animationend', function () { card.classList.add('settled'); }, { once: true });
+  });
 
   function update() {
     ticking = false;
-    if (reduce.matches || narrow.matches) {
-      cards.forEach(function (c) { c.style.removeProperty('--py'); });
-      return;
-    }
-    var y = window.scrollY || window.pageYOffset;
+    var off = reduce.matches || narrow.matches;
+    var y = off ? 0 : (window.scrollY || window.pageYOffset);
     cards.forEach(function (c) {
+      if (off) { c.style.removeProperty('--py'); c.style.removeProperty('--tx'); c.style.removeProperty('--ty'); return; }
       var depth = parseFloat(c.getAttribute('data-depth')) || 0;
       c.style.setProperty('--py', (y * depth * -0.25).toFixed(1) + 'px');
+      c.style.setProperty('--tx', (mx * depth * 28).toFixed(1) + 'px');
+      c.style.setProperty('--ty', (my * depth * 20).toFixed(1) + 'px');
     });
   }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  function queue() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  if (hero) {
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      mx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      my = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      queue();
+    });
+    hero.addEventListener('mouseleave', function () { mx = 0; my = 0; queue(); });
+  }
   update();
 })();
 
