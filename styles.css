@@ -93,7 +93,7 @@ h2 .meta { margin-left: 14px; }
 /* Polaroid strip */
 .polaroids {
   position: relative;
-  height: 600px;
+  height: 650px;
   perspective: 1200px;
 }
 .polaroid {
@@ -143,10 +143,10 @@ h2 .meta { margin-left: 14px; }
 }
 /* Tight 2x2 cluster, anchored --inset from the right edge of the column */
 .polaroid { --inset: 64px; }
-.polaroid:nth-child(1) { --rot: -7deg;  right: calc(var(--inset) + var(--w) * 1.32); top: 4%;  z-index: 2; } /* On stage */
-.polaroid:nth-child(2) { --rot: 5deg;   right: calc(var(--inset) + var(--w) * 0.44); top: 0;   z-index: 4; } /* Suited up */
-.polaroid:nth-child(3) { --rot: -3deg;  right: calc(var(--inset) + var(--w) * 0.86); top: 43%; z-index: 1; } /* Shipping */
-.polaroid:nth-child(4) { --rot: 8deg;   right: var(--inset);                         top: 40%; z-index: 3; } /* Scarborough */
+.polaroid:nth-child(1) { --rot: -7deg;  right: calc(var(--inset) + var(--w) * 1.32); top: 3%;  z-index: 2; } /* top-left */
+.polaroid:nth-child(2) { --rot: 5deg;   right: calc(var(--inset) + var(--w) * 0.44); top: 0;   z-index: 4; } /* top-right, fully visible */
+.polaroid:nth-child(3) { --rot: -3deg;  right: calc(var(--inset) + var(--w) * 0.86); top: 50%; z-index: 1; } /* bottom-left */
+.polaroid:nth-child(4) { --rot: 8deg;   right: var(--inset);                         top: 44%; z-index: 3; } /* bottom-right */
 .polaroid:hover {
   transform:
     translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px) - 8px))
@@ -265,7 +265,7 @@ h1 {
 /* Responsive */
 @media (max-width: 1200px) {
   .polaroid { --w: 220px; --inset: 40px; }
-  .polaroids { height: 540px; }
+  .polaroids { height: 580px; }
 }
 @media (max-width: 960px) {
   :root { --section-y: 72px; --pad: 24px; }
