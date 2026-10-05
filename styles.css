@@ -131,16 +131,6 @@ h2 .meta { margin-left: 14px; }
   filter: saturate(0.92) contrast(1.04);
 }
 .polaroid.is-missing img { visibility: hidden; }
-.polaroid figcaption {
-  position: absolute;
-  left: 10px; right: 10px; bottom: 11px;
-  font-family: 'Caveat', 'Bradley Hand', 'Segoe Script', cursive;
-  font-size: 20px;
-  font-weight: 500;
-  color: #2B2B33;
-  text-align: center;
-  line-height: 1;
-}
 /* Tight 2x2 cluster, anchored --inset from the right edge of the column */
 .polaroid { --inset: 64px; }
 .polaroid:nth-child(1) { --rot: -7deg;  right: calc(var(--inset) + var(--w) * 1.32); top: 3%;  z-index: 2; } /* top-left */
