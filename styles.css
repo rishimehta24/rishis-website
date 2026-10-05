@@ -126,7 +126,7 @@ h2 .meta { margin-left: 14px; }
 }
 .polaroid:nth-child(1) { --rot: -7deg;  left: 2%;  top: 6%;  z-index: 2; }
 .polaroid:nth-child(2) { --rot: 5deg;   left: 42%; top: 0;   z-index: 4; }
-.polaroid:nth-child(3) { --rot: -3deg;  left: 20%; top: 44%; z-index: 1; }
+.polaroid:nth-child(3) { --rot: -3deg;  left: 12%; top: 46%; z-index: 1; }
 .polaroid:nth-child(4) { --rot: 8deg;   left: 58%; top: 42%; z-index: 3; }
 .polaroid:hover {
   transform: rotate(0deg) translateY(calc(var(--py, 0px) - 8px)) scale(1.04);
