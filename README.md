@@ -19,7 +19,6 @@ Any static host works with zero config: Vercel, Netlify, Cloudflare Pages or Git
 ## Images (`img/`)
 
 - `sanfrancisco.jpg` (hero) and `cockpit.jpg` (off duty) are AI-generated scenery. Swap any of them for real photos by replacing the file; same filename, nothing else to change.
-- `ascenix-a-mark-3d.png` is an Ascenix brand asset from ascenix.co.
 
 ## Updating
 
