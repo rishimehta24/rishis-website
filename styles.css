@@ -114,8 +114,8 @@ h2 .meta { margin-left: 14px; }
   filter: saturate(0.92) contrast(1.04);
   transition: transform .8s cubic-bezier(.22, 1, .36, 1);
 }
-.mosaic__tall img { object-position: 50% 45%; }
-.mosaic figure:nth-child(2) img { object-position: 50% 30%; }
+.mosaic__tall img { object-position: 50% 50%; }
+.mosaic figure:nth-child(2) img { object-position: 50% 35%; }
 .mosaic figure:nth-child(3) img { object-position: 50% 35%; }
 .mosaic__wide img { object-position: 50% 42%; }
 .mosaic figure:hover img { transform: scale(1.04); }
@@ -220,7 +220,6 @@ h1 {
   .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; aspect-ratio: auto; gap: 10px; }
   .mosaic figure { aspect-ratio: 1 / 1; border-radius: 12px; }
   .mosaic__tall { grid-row: auto; }
-  .mosaic__tall img { object-position: 50% 28%; }
   .mosaic__wide { grid-column: auto; }
 }
 @media (max-width: 600px) {
