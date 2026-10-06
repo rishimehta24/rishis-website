@@ -90,62 +90,41 @@ h2 .meta { margin-left: 14px; }
 .js .hero__copy > :nth-child(3) { animation-delay: .30s; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
-/* Polaroid strip */
-.polaroids {
+/* Photo mosaic: tall | small small / tall | wide */
+.mosaic {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  aspect-ratio: 5 / 3;
+}
+.mosaic figure {
   position: relative;
-  height: 650px;
-  perspective: 1200px;
-}
-.polaroid {
-  --w: 250px;
-  position: absolute;
-  width: var(--w);
-  padding: 10px 10px 40px;
-  background: #F4F1EA;
-  border-radius: 3px;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.35),
-    0 24px 48px -16px rgba(0, 0, 0, 0.7);
-  transform:
-    translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px)))
-    rotate(var(--rot));
-  transition: transform .5s cubic-bezier(.22, 1, .36, 1), box-shadow .5s ease, z-index 0s;
-  will-change: transform;
-}
-/* drop-in on load */
-.js .polaroid { opacity: 0; animation: drop .9s cubic-bezier(.22, 1, .36, 1) forwards; }
-.js .polaroid:nth-child(1) { animation-delay: .25s; }
-.js .polaroid:nth-child(2) { animation-delay: .40s; }
-.js .polaroid:nth-child(3) { animation-delay: .55s; }
-.js .polaroid:nth-child(4) { animation-delay: .70s; }
-@keyframes drop {
-  from { opacity: 0; transform: translateY(-36px) rotate(calc(var(--rot) * 2.2)) scale(1.06); }
-  to   { opacity: 1; transform: translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px))) rotate(var(--rot)); }
-}
-.polaroid.settled { animation: none; opacity: 1; }
-.polaroid img {
-  width: 100%;
-  height: calc((var(--w) - 20px) * 1.25);
-  object-fit: cover;
+  overflow: hidden;
+  border-radius: 16px;
   background: #1C1C24;
+  box-shadow: inset 0 0 0 1px rgba(232, 232, 232, 0.07);
+}
+.mosaic__tall { grid-row: 1 / 3; }
+.mosaic__wide { grid-column: 2 / 4; }
+.mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   filter: saturate(0.92) contrast(1.04);
+  transition: transform .8s cubic-bezier(.22, 1, .36, 1);
 }
-.polaroid.is-missing img { visibility: hidden; }
-/* Tight 2x2 cluster, anchored --inset from the right edge of the column */
-.polaroid { --inset: 64px; }
-.polaroid:nth-child(1) { --rot: -7deg;  right: calc(var(--inset) + var(--w) * 1.32); top: 3%;  z-index: 2; } /* top-left */
-.polaroid:nth-child(2) { --rot: 5deg;   right: calc(var(--inset) + var(--w) * 0.44); top: 0;   z-index: 4; } /* top-right, fully visible */
-.polaroid:nth-child(3) { --rot: -3deg;  right: calc(var(--inset) + var(--w) * 0.86); top: 50%; z-index: 1; } /* bottom-left */
-.polaroid:nth-child(4) { --rot: 8deg;   right: var(--inset);                         top: 44%; z-index: 3; } /* bottom-right */
-.polaroid:hover {
-  transform:
-    translate(var(--tx, 0px), calc(var(--py, 0px) + var(--ty, 0px) - 8px))
-    rotate(0deg) scale(1.04);
-  z-index: 10;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.35),
-    0 36px 64px -16px rgba(0, 0, 0, 0.8);
-}
+.mosaic__tall img { object-position: 40% 50%; }
+.mosaic figure:nth-child(2) img { object-position: 50% 18%; }
+.mosaic figure:nth-child(3) img { object-position: 50% 35%; }
+.mosaic__wide img { object-position: 50% 42%; }
+.mosaic figure:hover img { transform: scale(1.04); }
+/* fade up on load, staggered */
+.js .mosaic figure { opacity: 0; transform: translateY(18px); animation: rise .9s cubic-bezier(.22, 1, .36, 1) forwards; }
+.js .mosaic figure:nth-child(1) { animation-delay: .20s; }
+.js .mosaic figure:nth-child(2) { animation-delay: .32s; }
+.js .mosaic figure:nth-child(3) { animation-delay: .44s; }
+.js .mosaic figure:nth-child(4) { animation-delay: .56s; }
 
 h1 {
   font-size: clamp(48px, 7vw, 96px);
@@ -194,7 +173,8 @@ h1 {
 .js .bullets li.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .bullets li { opacity: 1; transform: none; transition: none; }
-  .js .hero__copy > *, .js .polaroid { animation: none; opacity: 1; transform: rotate(var(--rot, 0deg)); }
+  .js .hero__copy > *, .js .mosaic figure { animation: none; opacity: 1; transform: none; }
+  .mosaic img { transition: none; }
 }
 
 /* Press */
@@ -232,40 +212,15 @@ h1 {
 .footer__inner { display: flex; justify-content: space-between; gap: 16px; }
 
 /* Responsive */
-@media (max-width: 1200px) {
-  .polaroid { --w: 220px; --inset: 40px; }
-  .polaroids { height: 580px; }
-}
 @media (max-width: 960px) {
   :root { --section-y: 72px; --pad: 24px; }
   .hero { min-height: 0; }
   .hero__inner { grid-template-columns: 1fr; gap: 40px; padding-top: 112px; }
-  .polaroids {
-    height: auto;
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding: 12px 4px 20px;
-    margin: 0 calc(-1 * var(--pad));
-    padding-left: var(--pad);
-    padding-right: var(--pad);
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--pad);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .polaroids::-webkit-scrollbar { display: none; }
-  .polaroid {
-    --w: 200px;
-    position: static;
-    flex: 0 0 var(--w);
-    scroll-snap-align: start;
-    transform: rotate(var(--rot));
-  }
-  .polaroid:nth-child(1) { --rot: -2deg; }
-  .polaroid:nth-child(2) { --rot: 2deg; }
-  .polaroid:nth-child(3) { --rot: -1.5deg; }
-  .polaroid:nth-child(4) { --rot: 2.5deg; }
+  /* simple 2x2 of squares on small screens */
+  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; aspect-ratio: auto; gap: 10px; }
+  .mosaic figure { aspect-ratio: 1 / 1; border-radius: 12px; }
+  .mosaic__tall { grid-row: auto; }
+  .mosaic__wide { grid-column: auto; }
 }
 @media (max-width: 600px) {
   .nav { display: none; }
