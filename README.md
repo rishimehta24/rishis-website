@@ -1,25 +1,28 @@
 # Rishi Mehta — personal site
 
-Static, dependency-free. Two files do the work:
+Static, dependency-free, no build step.
 
 - `index.html` — all content. Edit text directly.
-- `styles.css` — palette and type at the top (`:root`). Colours are the Ascenix palette: `#0CC7ED` / `#E8E8E8` / `#0F0F14`. Font is Inter.
-- `script.js` — one thing: reveals the story items as you scroll. Delete it and the page still works.
+- `styles.css` — palette and type live at the top (`:root`). Colours are the Ascenix palette: `#0CC7ED` / `#E8E8E8` / `#0F0F14`. Font is Inter.
+- `script.js` — hero polaroid parallax and the scroll-in reveal on the story list. Delete it and the page still works.
+- `img/` — the four hero photos (`me-*.jpg`, 600×800). Replace a file to swap a photo; nothing else to change.
+- `Staticfile` — tells Railway (Railpack/Nixpacks) to serve this folder as a static site.
 
 ## Run locally
 
 ```sh
-npx serve .
+python3 -m http.server 4173
+# or: npx serve .
 ```
 
-## Deploy
+## Deploy on Railway
 
-Any static host works with zero config: Vercel, Netlify, Cloudflare Pages or GitHub Pages. No build step.
+1. New Project → Deploy from GitHub repo → pick this repo, branch `main`.
+2. Railway detects the `Staticfile` and serves the folder. No build command, no start command, no env vars.
+3. Settings → Networking → Generate Domain (or add a custom domain).
 
-## Images (`img/`)
+Every push to `main` redeploys.
 
-- `sanfrancisco.jpg` (hero) is AI-generated scenery. Swap it for a real photo by replacing the file; same filename, nothing else to change.
+## Cache busting
 
-## Updating
-
-- **Off duty list**: add `class="done"` to an `<li>` to check it off.
+`styles.css` and `script.js` are referenced with `?v=N` in `index.html`. Bump the number when you change either file.
