@@ -114,7 +114,7 @@ h2 .meta { margin-left: 14px; }
   filter: saturate(0.92) contrast(1.04);
   transition: transform .8s cubic-bezier(.22, 1, .36, 1);
 }
-.mosaic__tall img { object-position: 40% 50%; }
+.mosaic__tall img { object-position: 50% 50%; }
 .mosaic figure:nth-child(2) img { object-position: 50% 18%; }
 .mosaic figure:nth-child(3) img { object-position: 50% 35%; }
 .mosaic__wide img { object-position: 50% 42%; }
